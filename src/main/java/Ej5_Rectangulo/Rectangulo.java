@@ -1,11 +1,11 @@
 /*
 5.Crea una clase Rectangulo que modele rectángulos por medio de cuatro puntos (los vértices).
 Dispondrá de un constructor que cree un rectángulo partiendo de la base y la altura, 
-de forma que su vértice inferior izquierdo esté en (0,0). La clase también incluirá 
-un método para calcular la superficie y otro que desplace el rectángulo en el plano, 
-pasando como parámetros dos valores que indiquen el desplazamiento en eje X y el 
-desplazamiento en el eje Y, respectivamente. Utiliza la clase  
-PuntoGeométrico para modelar los cuatro vértices del Rectangulo.
+de forma que su vértice inferior izquierdo esté en (0,0).
+La clase también incluirá  un método para calcular la superficie y otro que desplace el 
+rectángulo en el plano, pasando como parámetros dos valores que indiquen el desplazamiento 
+en eje X y el  desplazamiento en el eje Y, respectivamente. 
+Utiliza la clase PuntoGeométrico para modelar los cuatro vértices del Rectangulo.
 
  */
 package Ej5_Rectangulo;
@@ -49,13 +49,22 @@ public class Rectangulo {
     
     public void desplazarRectangulo(Double cantidadEjeX, Double cantidadEjeY){
         this.verticeInfDer.setCoordX(this.verticeInfDer.getCoordX() + cantidadEjeX);
-        this.verticeSupDer.setCoordX(this.verticeSupDer.getCoordX() +cantidadEjeX);
-        this.verticeInfIzq.setCoordX(this.verticeInfIzq.getCoordX() +cantidadEjeX);
-        this.verticeSupIzq.setCoordX(this.verticeSupIzq.getCoordX() +cantidadEjeX);
+        this.verticeSupDer.setCoordX(this.verticeSupDer.getCoordX() + cantidadEjeX);
+        this.verticeInfIzq.setCoordX(this.verticeInfIzq.getCoordX() + cantidadEjeX);
+        this.verticeSupIzq.setCoordX(this.verticeSupIzq.getCoordX() + cantidadEjeX);
         
         this.verticeInfDer.setCoordY(this.verticeInfDer.getCoordY() + cantidadEjeY);
-        this.verticeSupDer.setCoordY(this.verticeSupDer.getCoordY() +cantidadEjeY);
-        this.verticeInfIzq.setCoordY(this.verticeInfIzq.getCoordY() +cantidadEjeY);
-        this.verticeSupIzq.setCoordY(this.verticeSupIzq.getCoordY() +cantidadEjeY);
+        this.verticeSupDer.setCoordY(this.verticeSupDer.getCoordY() + cantidadEjeY);
+        this.verticeInfIzq.setCoordY(this.verticeInfIzq.getCoordY() + cantidadEjeY);
+        this.verticeSupIzq.setCoordY(this.verticeSupIzq.getCoordY() + cantidadEjeY);
+    }
+    
+    @Override
+    public String toString (){
+    return "Vértices del rectángulo: \n" 
+            + " Inferior izquierdo: " + this.verticeInfIzq + ",\n"
+            + " superior izquierdo: " + this.verticeSupIzq + ",\n"
+            + " superior derecho: " + this.verticeSupDer + ",\n"
+            + " inferior derecho: " + this.verticeInfDer + ".\n";
     }
 }

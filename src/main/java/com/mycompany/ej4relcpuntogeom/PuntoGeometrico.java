@@ -40,7 +40,7 @@ public class PuntoGeometrico {
 
     @Override
     public String toString() {
-        return "PuntoGeometrico{" + "coordX=" + coordX + ", coordY=" + coordY + '}';
+        return "(" +  coordX + ", "+ coordY + ')';
     }
     
 }
