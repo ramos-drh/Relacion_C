@@ -1,4 +1,8 @@
 /*
+DAVID RAMOS 1ºDAW
+
+            ---------------------------
+
 Crea una clase Hora con atributos para las horas, los minutos y los segundos. 
 Incluye, al menos, los siguientes métodos:
  */
@@ -46,8 +50,11 @@ public class Hora {
     }
 
     public void setHora(int hora) {
-        this.hora = hora;
-        this.valida();
+        if (this.hora < 0 || this.hora > 23){
+            this.hora = 12;
+        } else{
+            this.hora = hora;
+        }
     }
 
     public int getMin() {
@@ -55,7 +62,11 @@ public class Hora {
     }
 
     public void setMin(int min) {
-        this.min = min;
+        if(this.min < 0 || this.min > 59){
+            this.min = 0;
+        } else{
+            this.min = min;
+        }
     }
 
     public int getSeg() {
@@ -63,15 +74,37 @@ public class Hora {
     }
 
     public void setSeg(int seg) {
-        this.seg = seg;
+        if(this.seg < 0 || this.seg > 59){
+            this.seg = 0;
+        } else{
+            this.seg = seg;
+        }
     }
 
     //escribirHora(): mostrará la hora (ejemplo: 07:03:21).
     public void escribirHora() {
         //FALTA que muestre 0 a la derecha cuando sea un nº <= 9
-        System.out.println(hora + ":" + min + ":" + seg);
+        if(hora <= 9){
+            System.out.println("0" + hora);
+        } else{
+            System.out.println(hora);
+        }
+        System.out.println(":");
+        
+        if(min <= 9){
+            System.out.println("0" + min);
+        } else{
+            System.out.println(min);
+        }
+        System.out.println(":");
+        
+        if(seg <= 9){
+            System.out.println("0" + seg);
+        } else{
+            System.out.println(seg);
+        }
+            
     }
-
     
     //Devolverá el número de segundos transcurridos desde la medianoche.
     //Usamos la clase auxiliar que pasa una hora dada en horas min y seg a segundos
