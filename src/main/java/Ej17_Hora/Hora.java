@@ -21,18 +21,22 @@ public class Hora {
     //Constructor parametrizado con horas, minutos y segundos.
     public Hora(int hora, int minutos, int segundos) {
         this.hora = hora;
-        this.valida();
         this.min = minutos;
         this.seg = segundos;
+        this.valida();
     }
 
     //valida(): comprobará si la hora es correcta; si no lo es la ajustará a 12:00:00. 
     //Será un método auxiliar (privado) que se llamará en el constructor parametrizado.
     private void valida() {
         //Si la hora es > 23 o < 0: Error
-        if (this.hora > 23 || this.hora < 0) {
-            System.out.println("La hora es incorrecta. Se establecerá a 12");
+        if ((this.hora < 0 || this.hora > 23) ||
+            (this.min < 0 || this.min > 59) ||
+            (this.seg < 0 || this.seg > 59) ){
+            System.out.println("La hora es incorrecta. Se establecerá a 12:00:00");
             this.hora = 12;
+            this.min = 0;
+            this.seg = 0;
         }
     }
 
