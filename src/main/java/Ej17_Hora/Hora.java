@@ -64,28 +64,131 @@ public class Hora {
 
     //escribirHora(): mostrará la hora (ejemplo: 07:03:21).
     public void escribirHora() {
+        //FALTA que muestre 0 a la derecha cuando sea un nº <= 9
         System.out.println(hora + ":" + min + ":" + seg);
     }
 
-    /*
-    segundosDesde(): devolverá el número de segundos transcurridos desde la medianoche.
-
-segundosHasta(): devolverá el número de segundos transcurridos hasta la medianoche.
-
-segundosEntreHoras(Hora): devolverá el número de segundos entre la hora y la proporcionada.
-
-siguiente(): pasará al segundo siguiente.
-
-anterior(): pasará al segundo anterior.
-
-copia(): devolverá un clon de la hora.
-
-igualQue(Hora): indica si la hora es la misma que la proporcionada.
-
-menorQue(Hora): indica si la hora es anterior a la proporcionada.
-
-mayorQue(Hora): indica si la hora es posterior a la proporcionada.
-
     
-     */
+    //Devolverá el número de segundos transcurridos desde la medianoche.
+    //Usamos la clase auxiliar que pasa una hora dada en horas min y seg a segundos
+    
+    public int obtenerSegundos(){
+        return (this.hora*3600) +
+                (this.min*60) +
+                (this.seg);
+    }
+    
+    public int segundosDesde(){
+        //Pasar this a seg.
+        return this.obtenerSegundos();
+    }
+
+    //Devolverá el número de segundos transcurridos hasta la medianoche.
+
+    public int segundosHasta(){
+        //Resto los segundos totales de un día menos la hora actual en segundos
+        return (24*3600) - this.segundosDesde();
+    }
+
+    //Devolverá el número de segundos entre la hora y la proporcionada.
+
+    public int segundosEntreHoras(Hora h1){
+        //Pasamos ambas horas a segundos y a la mayor le restamos la otra
+        int horaPrincipal = this.obtenerSegundos();
+        int horaParametro = h1.obtenerSegundos();
+        if(horaPrincipal > horaParametro){
+            return horaPrincipal - horaParametro;
+        } else{
+            //Aquí entrará también si son iguales
+            return horaParametro - horaPrincipal;
+        }
+    }
+    
+
+    //siguiente(): pasará al segundo siguiente.
+    public void siguiente(){
+        
+        if(this.seg < 59){
+            this.seg++;
+        } else{
+            //Si el segundo es 59:
+            this.seg = 0;
+            this.sumarMinuto();
+        }
+    }
+    
+    //METODOS AUX SUMAR MINUTO
+    
+    public void sumarMinuto(){
+        if(this.min < 59){
+            this.min++;
+        } else{
+            //Si el minuto es 59:
+            this.min = 0;
+            this.sumarHora();
+        }
+    }
+    
+    public void sumarHora(){
+        if(this.hora < 23){
+            this.hora++;
+        } else{
+            //Si la hora es 23:
+            this.hora = 0;
+        }
+    }
+    
+    //anterior(): pasará al segundo anterior.
+    public void anterior(){
+        if(seg == 0){
+            this.seg = 59;
+            this.restarMinuto();
+        } else{
+            //Si el segundo es > 0
+            this.seg--;
+        }
+    }
+     public void restarMinuto(){
+        if(this.min == 0){
+            this.min = 59;
+            this.restarHora();
+        } else{
+            //Si el minuto es > 0
+            this.min--;
+        }
+    }
+    
+    public void restarHora(){
+        if(this.hora == 0){
+            this.hora = 23;
+        } else{
+            //Si la hora es > 0:
+            this.hora --;
+        }
+    }
+    
+    //Devolverá un clon de la hora.
+    
+    public Hora copia(){
+        Hora horaCopia;
+        return new Hora(this.hora, this.min, this.seg);
+    }
+    
+    // Indica si la hora es la misma que la proporcionada.
+    
+    public boolean igualQue(Hora h1){
+        return this.obtenerSegundos() == h1.obtenerSegundos();
+    }
+    
+    //indica si la hora es anterior a la proporcionada.
+            
+    public boolean menorQue(Hora h1){
+        return this.obtenerSegundos() < h1.obtenerSegundos();
+    }
+    
+    //indica si la hora es posterior a la proporcionada.
+    
+    public boolean mayorQue(Hora h1){
+        return this.obtenerSegundos() > h1.obtenerSegundos();
+    }
 }
