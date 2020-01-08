@@ -50,11 +50,17 @@ public class Hora {
     }
 
     public void setHora(int hora) {
+
         if (this.hora < 0 || this.hora > 23){
             this.hora = 12;
         } else{
             this.hora = hora;
         }
+
+        this.hora = hora;
+        
+        this.valida();
+
     }
 
     public int getMin() {
