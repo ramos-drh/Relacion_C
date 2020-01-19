@@ -5,10 +5,22 @@
  */
 package Ej15_FechaLocalDate;
 
+import java.time.Month;
+import java.time.Year;
+
 /**
  *
  * @author ramos
  */
 public class Prueba_Ej15Fecha {
+    public static void main(String[] args) {
+        Fecha f1 = new Fecha();
+        Fecha f2 = new Fecha(26, Month.MARCH, Year.of(1999));
     
+        f1.mostrarFechaCorta();
+        f2.mostrarFechaCorta();
+        
+        Fecha.leerFecha();
+    }
 }
+
