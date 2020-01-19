@@ -6,7 +6,7 @@ y los constructores por defecto (inicializando a cadenas vacías)
 y parametrizado, así como métodos get, set y toString.
 
  */
-package com.mycompany.ej4relcpuntogeom;
+package Ej4_10Y14_PuntoGeo_Song_Pers;
 
 public class Cancion {
 

@@ -6,7 +6,7 @@
 package Ej6_Linea;
 
 //Yo importé la clase pero el profe la hizo de nuevo en el paquete
-import com.mycompany.ej4relcpuntogeom.PuntoGeometrico;
+import Ej4_10Y14_PuntoGeo_Song_Pers.PuntoGeometrico;
 
 public class Linea {
 

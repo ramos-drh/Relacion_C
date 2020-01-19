@@ -6,7 +6,7 @@
 package Ej1_Y_2;
 
 
-public class EjComplejos_Prueba {
+public class Prueba_Ej1y2Complejos {
     public static void main(String[] args) {
         Complejo c1 = new Complejo();
         

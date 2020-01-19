@@ -6,6 +6,6 @@
 package Ej19_Calculadora;
 
 
-public class PruebaCalculadora {
+public class Prueba_Ej19Calculadora {
     
 }

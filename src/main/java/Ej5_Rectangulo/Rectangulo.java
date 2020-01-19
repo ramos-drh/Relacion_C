@@ -9,7 +9,7 @@ Utiliza la clase PuntoGeométrico para modelar los cuatro vértices del Rectangu
 
  */
 package Ej5_Rectangulo;
-import com.mycompany.ej4relcpuntogeom.PuntoGeometrico;
+import Ej4_10Y14_PuntoGeo_Song_Pers.PuntoGeometrico;
 
 public class Rectangulo {
 //rectángulos por medio de cuatro puntos (los vértices)

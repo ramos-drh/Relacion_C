@@ -5,10 +5,10 @@
  */
 package Ej6_Linea;
 
-import com.mycompany.ej4relcpuntogeom.PuntoGeometrico;
+import Ej4_10Y14_PuntoGeo_Song_Pers.PuntoGeometrico;
 
 
-public class Prueba_Ej6 {
+public class Prueba_Ej6Linea {
     public static void main(String[] args) {
         Linea l1 = new Linea();
         System.out.println(l1);

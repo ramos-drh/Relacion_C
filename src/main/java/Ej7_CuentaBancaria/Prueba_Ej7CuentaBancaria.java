@@ -9,7 +9,7 @@ package Ej7_CuentaBancaria;
  *
  * @author ramos-drh
  */
-public class PruebaCuentaBancaria {
+public class Prueba_Ej7CuentaBancaria {
 
     public static void main(String[] args) {
         //Creamos una cuenta con el constr por defecto

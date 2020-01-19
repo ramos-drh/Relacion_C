@@ -5,7 +5,7 @@ Esas coordenadas serán números reales.
 Incluye los siguientes métodos: constructores 
 (por defecto y parametrizado) y métodos get y set.
  */
-package com.mycompany.ej4relcpuntogeom;
+package Ej4_10Y14_PuntoGeo_Song_Pers;
 
 public class PuntoGeometrico {
 

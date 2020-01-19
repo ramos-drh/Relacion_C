@@ -1,7 +1,7 @@
 /*
 
  */
-package com.mycompany.ej4relcpuntogeom;
+package Ej4_10Y14_PuntoGeo_Song_Pers;
 
 
 public class Persona {
