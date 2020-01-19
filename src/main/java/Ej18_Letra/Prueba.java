@@ -7,7 +7,7 @@ package Ej18_Letra;
 
 
 
-public class Prueba_Ej18Letra {
+public class Prueba {
     public static void main(String[] args) {
             Letra letra1 = new Letra();
     Letra letra2 = new Letra('H');

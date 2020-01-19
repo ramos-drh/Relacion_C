@@ -9,7 +9,7 @@ package Ej5_Rectangulo;
  *
  * @author ramos-drh
  */
-public class Prueba_Ej5Rectangulo {
+public class Prueba_Ej5 {
 
     public static void main(String[] args) {
         Rectangulo rect = new Rectangulo(7.8, 6.3);

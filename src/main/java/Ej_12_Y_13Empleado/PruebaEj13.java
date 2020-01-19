@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ej12_RelC_Empleado;
+package Ej_12_Y_13Empleado;
 
 
-public class Prueba_Ej12Empleado {
+public class PruebaEj13 {
     public static void main(String[] args) {
         Empleado empleado1 = new Empleado ();
         

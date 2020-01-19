@@ -1,7 +1,7 @@
 /*
 NO HACER LA CLASE NIF; USARLO COMO UN ATR
  */
-package Ej12Y13_Empleado;
+package Ej_12_Y_13Empleado;
 
 
 public class Empleado {

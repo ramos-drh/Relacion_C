@@ -1,10 +1,10 @@
 /*
 Clase de prueba para ej 4, 10 y14
  */
-package Ej4_10Y14_PuntoGeo_Song_Pers;
+package com.mycompany.ej4relcpuntogeom;
 
 
-public class Prueba_Ej4_10Y14 {
+public class RelC4_10_14 {
     public static void main(String[] args) {
         
         //EJ 4 PUNTO GEOMÉTRICO
