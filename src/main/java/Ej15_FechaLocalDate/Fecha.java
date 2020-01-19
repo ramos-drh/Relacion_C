@@ -9,6 +9,7 @@ import java.time.Month;
 import java.time.LocalDate;
 import java.time.Year;
 import java.util.Scanner;
+import java.time.Period;
 
 /**
  *
@@ -36,7 +37,7 @@ public class Fecha {
         this.dia = dia;
         this.mes = mes;
         this.anio = anio;
-//        if(this.validarFecha){
+//        if(this.validarFecha()){
 //            
 //        }
     }
@@ -49,9 +50,14 @@ public class Fecha {
     //Este método debe ser estático, así también leerDia y los setter ERROR ESTOS NO PUEDEN SERLO
     public static void leerFecha(){
         System.out.println("Escriba una fecha (día, mes y año): ");
-        setDia(Fecha.leerDia());
-        setMes(Month.of(leerMes()));
-        setAnio(Year.of(leerAnio()));
+        if(this.validarFecha()){
+            setDia(Fecha.leerDia());
+            setMes(Month.of(leerMes()));
+            setAnio(Year.of(leerAnio()));
+        } else{
+            
+        }
+        
     }
     
     //leerDia(): leerá un entero por teclado hasta que se encuentre en el rango 1 – 31 y lo devolverá.
@@ -96,13 +102,32 @@ public class Fecha {
         /*Si queremos exactamente el mismo orden (y aún así faltarían los 0s pero profe no tengo tanto tiempo :v:*/
         System.out.println(dia+ " - " + mes.getValue() + " - " + anio.getValue());
     }
-
-    public Scanner getTeclado() {
-        return teclado;
+    
+    //bisiesto(): indicará si el año de la fecha es bisiesto o no.
+    public boolean bisiesto(){
+        return this.anio.isLeap();
     }
+    
+    //diasMes(int): devolverá el número de días del mes que se le indique (para el año de la fecha).
+    public int diasMes(int anio){
+        //bisiesto como parámetro porque así lo requiere el método legth
+        return mes.length(bisiesto());
+    }
+    
+    //validarFecha(): comprobará si la fecha es correcta;  Ejemplos: 31-2-2010 no es una fecha correcta. 
+    //Será un método auxiliar (privado). Este método se llamará en el constructor parametrizado y en leer().
 
-    public void setTeclado(Scanner teclado) {
-        this.teclado = teclado;
+    private boolean validarFecha(){
+        return  !(  (dia <= 1 || dia >= 31)||
+                    (mes.getValue() < 1 || mes.getValue() > 12) ||
+                    (anio.getValue() < MIN_ANIO || anio.getValue() > MAX_ANIO)  
+                );      
+    }
+    
+    //diasTranscurridos(): devolverá el número de días transcurridos desde el 1-1-1900 hasta la fecha.
+    public int diasTranscurridos(){
+        Fecha f1 = new Fecha();
+        return Period.between(LocalDate.of(f1.dia, f1.mes, f1.anio.getValue()), LocalDate.of(this.dia, this.mes.getValue(), this.anio.getValue())).getDays();
     }
 
     public int getDia() {
