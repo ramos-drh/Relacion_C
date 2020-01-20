@@ -10,6 +10,8 @@ import java.time.LocalDate;
 import java.time.Year;
 import java.util.Scanner;
 import java.time.Period;
+import java.time.DayOfWeek;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -129,7 +131,49 @@ public class Fecha {
         Fecha f1 = new Fecha();
         return Period.between(LocalDate.of(f1.dia, f1.mes, f1.anio.getValue()), LocalDate.of(this.dia, this.mes.getValue(), this.anio.getValue())).getDays();
     }
+    
+    //diaSemana(): devolverá el día de la semana de la fecha (0 para domingo, ..., 6 para sábado). 
+    //El 1-1-1900 fue domingo.
+    
+    public int diaSemana(){
+        return DayOfWeek.of(dia).getValue();
+    }
+    
+    //mostrarFechaLarga(): mostrará la fecha en formato largo, empezando por el día 
+    //de la semana (martes 2 de septiembre de 2003).
+    
+    public void mostrarFechaLarga(){
+        DateTimeFormatter formatoLargo = DateTimeFormatter.ofPattern("E d de M de yyyy");
+       
+        System.out.println("Fecha: " +  LocalDate.of(this.dia, this.mes, this.anio.getValue()).format(formatoLargo));
+    }
 
+    //fechaTras(long): hará que la fecha sea la correspondiente a haber 
+    //transcurrido los días que se indiquen desde el 1-1-1900.
+    
+    public void fechaTras(long diasTranscurridos){
+        LocalDate fecha;
+        fecha = LocalDate.of(this.dia, this.mes, this.anio.getValue());
+        
+        fecha.plusDays(diasTranscurridos);
+    }
+    
+    //diasEntre(Fecha): devolverá el número de días entre la fecha y la proporcionada.
+    
+    public long diasEntre(Fecha f1){
+        LocalDate fParametro = LocalDate.of(f1.dia, f1.mes, f1.anio.getValue());
+        LocalDate fObj = LocalDate.of(this.dia, this.mes, this.anio.getValue());
+        
+        return Period.between(fParametro, fObj).getDays();
+    }
+    
+    //siguiente(): pasará al día siguiente.
+    
+    public void siguiente(){
+        this.dia++;
+        //Controlar cambio de mes (y de año)
+    }
+    
     public int getDia() {
         return dia;
     }
