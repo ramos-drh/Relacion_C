@@ -30,7 +30,7 @@ public class Fecha {
     public Fecha(){
         dia = 1;
         mes = Month.JANUARY;
-        anio = Year.parse("2000");
+        anio = Year.parse(Integer.toString(MAX_ANIO));
     }
     
     //Constructor parametrizado con día, mes y año. Debe comprobar que es una fecha válida usando el 
@@ -49,16 +49,19 @@ public class Fecha {
     Haciendo uso de los métodos set, establecerá la fecha leída en los atributos del objeto.
     */
     
-    //Este método debe ser estático, así también leerDia y los setter ERROR ESTOS NO PUEDEN SERLO
     public static void leerFecha(){
         System.out.println("Escriba una fecha (día, mes y año): ");
-        if(this.validarFecha()){
+        //EL ENUNCIADO NO SE REFEIRE A QUE TENGA Q USARSE ASÍ
+        /*if(this.validarFecha()){
             setDia(Fecha.leerDia());
             setMes(Month.of(leerMes()));
             setAnio(Year.of(leerAnio()));
         } else{
             
-        }
+        }*/
+        int dia = leerDia();
+        int mes = leerMes();
+        int anio = leerAnio();
         
     }
     
@@ -103,6 +106,11 @@ public class Fecha {
         
         /*Si queremos exactamente el mismo orden (y aún así faltarían los 0s pero profe no tengo tanto tiempo :v:*/
         System.out.println(dia+ " - " + mes.getValue() + " - " + anio.getValue());
+        
+        //CON EL FORMATTER
+        /*DateTimeFormatter dTF = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        System.out.println(LocalDate.of(this.dia, this.mes, this.anio.getValue()).format(dTF)); o crear una var LocalDatae aux en vez de esta linea tan larga
+        */
     }
     
     //bisiesto(): indicará si el año de la fecha es bisiesto o no.
@@ -113,13 +121,21 @@ public class Fecha {
     //diasMes(int): devolverá el número de días del mes que se le indique (para el año de la fecha).
     public int diasMes(int anio){
         //bisiesto como parámetro porque así lo requiere el método legth
+        //Creo que no está bien
         return mes.length(bisiesto());
+        
+        //También return L..a.of(this.anio,mes,this.dia).lengthOfMonth();
+        //También se podía usar la clase YearMonth y su método of()
+        //YearMonth.of(this.anio, mes).lengthOfMonth();
     }
     
     //validarFecha(): comprobará si la fecha es correcta;  Ejemplos: 31-2-2010 no es una fecha correcta. 
     //Será un método auxiliar (privado). Este método se llamará en el constructor parametrizado y en leer().
 
     private boolean validarFecha(){
+        //MAL PORQUE SE TRAGARÍA POR EJEMPLO 31 DE FEBRERO
+        //USAR EL CONSTRUCTOR DE LOCALDATE CON LOS PARÁMETROS DE THIS
+        //TAMBIÉN DEBERÍAMOS CONTROLAR QUÉ HACE CUANDO ES INCORRECTO (o eso lo hace tambn autom el constr?)
         return  !(  (dia <= 1 || dia >= 31)||
                     (mes.getValue() < 1 || mes.getValue() > 12) ||
                     (anio.getValue() < MIN_ANIO || anio.getValue() > MAX_ANIO)  
@@ -156,6 +172,7 @@ public class Fecha {
         fecha = LocalDate.of(this.dia, this.mes, this.anio.getValue());
         
         fecha.plusDays(diasTranscurridos);
+        //FALTA EXCEPCIÓN DE QUE SE PASE DEL RANGO MÁXIMO (DateTimeException) (que se inicialice con 1-1-1900)
     }
     
     //diasEntre(Fecha): devolverá el número de días entre la fecha y la proporcionada.
