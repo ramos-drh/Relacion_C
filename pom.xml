@@ -10,5 +10,5 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
-    <name>Relacion_C</name>
+    <name>RelacionC_DisenoClases</name>
 </project>
