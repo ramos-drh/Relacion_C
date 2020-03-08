@@ -86,7 +86,7 @@ public class Fecha {
     }
 
     //leerAnio(): leerá un entero por teclado hasta que se encuentre en el rango 1900 – 2100 y lo devolverá.
-    public int leerAnio(){
+    public static int leerAnio(){
         int anioInt;
         do{
             anioInt = teclado.nextInt();
